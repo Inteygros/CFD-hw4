@@ -11,7 +11,13 @@ int main() {
     printf("松弛因子:");
     scanf("%lf", &w);
 
-    double u[m + 1][n + 1] = { 0 };
+    double u[m + 1][n + 1];
+    //初始化所有节点为0
+    for (int i = 0; i <= m; i++) {
+        for (int j = 0; j <= n; j++) {
+            u[i][j] = 0;
+        }
+    }
     double dx, dy, beta;
     dx = 15.0 / double(m);
     dy = 12.0 / double(n);
@@ -19,14 +25,14 @@ int main() {
 
     char filename[256];
 
-    // 将m和n的值写入文件名
-    snprintf(filename, sizeof(filename), "output_m=%d_n=%d.csv", m, n);
+    //将m和n的值写入文件名
+    snprintf(filename, sizeof(filename), "output_m=%d_n=%d_w=%.4f.csv", m, n, w);
 
     FILE* fp = fopen(filename, "w");//输出文件
 
     double maxe;//最大残差，作为收敛判据
 
-    //初始化u,边界设为边界条件
+    //初始化u边界
     for (int i = 0;i <= m;i++) {
         u[i][0] = 20;
         u[i][n] = 100;
@@ -57,7 +63,7 @@ int main() {
     }
 
     fclose(fp);
-    printf("\n数据已保存到output_m=%d_n=%d.csv\n", m, n);
+    printf("\n数据已保存到output_m=%d_n=%d_w=%.4f.csv\n", m, n, w);
 
     return 0;
 }

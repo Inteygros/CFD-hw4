@@ -1,4 +1,10 @@
-output = readmatrix('output\output_m=100_n=100_w=1.5000.csv');   %%% 根据需要修改文件名
+m = 10;
+n = 10; %根据需要调节参数
+file_str = ['output\output_m=', num2str(m), '_n=', num2str(n), '.csv'];
+title_str = ['温度分布图 m=', num2str(m), ' n=', num2str(m)];
+figure_str = ['figure\output_m=', num2str(m), '_n=', num2str(n), '.png'];
+
+output = readmatrix(file_str);   %%% 根据需要修改文件名
 [n, m] = size(output);
 
 x = linspace(0, 15, m);
@@ -16,6 +22,6 @@ yticks(0:1:12);
 
 xlabel('X (cm)');
 ylabel('Y (cm)');
-title('温度分布图');
+title(title_str);
 
-saveas(gcf, 'figure\output_m=100_n=100_w=1.5000.png');  %%% 根据需要修改文件名
+saveas(gcf, figure_str);  %%% 根据需要修改文件名

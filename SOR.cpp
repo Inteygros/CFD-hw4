@@ -12,7 +12,7 @@ int main() {
     scanf("%lf", &w);
 
     double u[m + 1][n + 1];
-    //初始化所有节点为0
+    //初始化所有网格点为0
     for (int i = 0; i <= m; i++) {
         for (int j = 0; j <= n; j++) {
             u[i][j] = 0;
@@ -26,7 +26,7 @@ int main() {
     char filename[256];
 
     //将m和n的值写入文件名
-    snprintf(filename, sizeof(filename), "output_m=%d_n=%d_w=%.4f.csv", m, n, w);
+    snprintf(filename, sizeof(filename), "output_m=%d_n=%d.csv", m, n);
 
     FILE* fp = fopen(filename, "w");//输出文件
 
@@ -63,7 +63,7 @@ int main() {
     }
 
     fclose(fp);
-    printf("\n数据已保存到output_m=%d_n=%d_w=%.4f.csv\n", m, n, w);
+    printf("\n数据已保存到output_m=%d_n=%d.csv\n", m, n);
 
     return 0;
 }

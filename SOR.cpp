@@ -55,11 +55,11 @@ int main() {
     } while (maxe > 1e-5);
 
     //写入文件
-    for (int i = 0;i <= m;i++) {
-        for (int j = 0;j < n;j++) {
+    for (int j = 0;j <= n;j++) {
+        for (int i = 0;i < m;i++) {
             fprintf(fp, "%lf ", u[i][j]);
         }
-        fprintf(fp, "%lf\n", u[i][n]);
+        fprintf(fp, "%lf\n", u[m][j]);
     }
 
     fclose(fp);

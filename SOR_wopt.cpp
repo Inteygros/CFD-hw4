@@ -21,7 +21,7 @@ int main() {
     FILE* fp = fopen(filename, "w");//输出文件
 
     //松弛因子从a增加到1.99,根据需要调整a，a太小会导致迭代极慢
-    for (w = 0.01;w < 2;w += 0.01) {
+    for (w = 1.00;w < 2;w += 0.01) {
         //初始化所有网格点为0
         for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
